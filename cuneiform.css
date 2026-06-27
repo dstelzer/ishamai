@@ -1,0 +1,91 @@
+.sign{
+	position: relative;
+	display: inline-grid;
+	line-height: 1.2;
+}
+
+.whitespace{
+	margin-left: 0.33ch;
+	margin-right: 0.33ch;
+}
+
+.size-small .sign, .size-small .whitespace{
+	font-size: 1em;
+}
+.size-medium .sign, .size-medium .whitespace{
+	font-size: 1.67em;
+}
+.size-large .sign, .size-large .whitespace{
+	font-size: 2.5em;
+}
+
+.sign .glyph{
+	grid-area: 1 / 1;
+	visibility: visible;
+	font-style: normal;
+	font-synthesis-style: none; /* Don't make fake italics please! */
+}
+
+.sign .read{
+	grid-area: 1 / 1;
+	display: none;
+	font-size: 0.75em;
+	z-index: 1;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.sign:hover .glyph{
+	/* visibility: hidden; */
+	opacity: 0.25;
+}
+
+.sign:hover .read{
+	display: block;
+}
+
+.bound{
+	display: none;
+}
+
+.translit{
+	display: inline;
+}
+
+.showbound .bound{
+	display: inline;
+}
+
+.showbound .bound ~ .translit{ /* Only hide the translit element if a bound element exists; this ensures .signs elements (with no bound transcription) don't disappear entirely */
+	display: none;
+}
+
+@font-face{
+	font-family: CuneiInk;
+	src: url("fonts/ArmannisNew.otf");
+}
+@font-face{
+	font-family: CuneiPublished;
+	src: url("fonts/MittellinienNew.otf");
+}
+@font-face{
+	font-family: CuneiHandwrite;
+	src: url("fonts/PenstrokeNew.otf");
+}
+@font-face{
+	font-family: CuneiLinear;
+	src: url("fonts/LinearNew.otf");
+}
+
+.font-ink .glyph{
+	font-family: CuneiInk;
+}
+.font-publish .glyph{
+	font-family: CuneiPublished;
+}
+.font-write .glyph{
+	font-family: CuneiHandwrite;
+}
+.font-linear .glyph{
+	font-family: CuneiLinear;
+}

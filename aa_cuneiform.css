@@ -1,0 +1,169 @@
+.sign{
+	position: relative;
+	display: inline-grid;
+	line-height: 1.2;
+}
+
+.whitespace{
+	margin-left: 0.33ch;
+	margin-right: 0.33ch;
+}
+
+.size-small .sign, .size-small .whitespace{
+	font-size: 1em;
+}
+.size-medium .sign, .size-medium .whitespace{
+	font-size: 1.67em;
+}
+.size-large .sign, .size-large .whitespace{
+	font-size: 2.5em;
+}
+
+.sign .glyph{
+	grid-area: 1 / 1;
+	visibility: visible;
+	font-style: normal;
+	font-synthesis-style: none; /* Don't make fake italics please! */
+}
+
+.sign .read{
+	grid-area: 1 / 1;
+	display: none;
+	font-size: 0.75em;
+	z-index: 1;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.sign:hover .glyph{
+	/* visibility: hidden; */
+	opacity: 0.25;
+}
+
+.sign:hover .read{
+	display: block;
+}
+
+.bound{
+	display: none;
+}
+
+.translit{
+	display: inline;
+}
+
+.showbound .bound{
+	display: inline;
+}
+
+.showbound .bound ~ .translit{ /* Only hide the translit element if a bound element exists; this ensures .signs elements (with no bound transcription) don't disappear entirely */
+	display: none;
+}
+
+.header{ /* Top bar with dropdowns */
+	width: auto;
+	margin: auto;
+	font-size: smaller;
+	top: 0;
+	text-align: center;
+}
+
+#dictionary{ /* Dictionary panel off to the side */
+	height: 100%;
+	float: right;
+	width: 30ch;
+	background-color: rgba(128, 128, 128, 0.25);
+	border: 1px solid rgb(128, 128, 128);
+	margin-top: 1em;
+	padding: 0.5em;
+	display: inline-block;
+	line-height: 1.35em;
+}
+
+#dictionary h2{ /* Headwords */
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#dictionary p{ /* Entries */
+	margin-top: 0.75em;
+}
+
+#dictionary abbr{ /* Case markers */
+	font-weight: bold;
+	text-decoration: dotted underline 2px;
+}
+
+#aacontainer{ /* Make this wider to contain the dictionary */
+	max-width: 93ch;
+}
+
+#maincolumn{
+	max-width: 60ch;
+	display: inline-block;
+}
+
+/* We added an explicit submit button so it needs to be styled too */
+#aainput{
+	display: inline-block;
+}
+#aasubmit{
+	float: right;
+	display: inline-block;
+}
+#aainputblock{
+	width: 100%;
+	display: none;
+	padding: 0;
+	height: 1.1em;
+}
+
+.aa-dtm .read{
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.bound .aa-dtm{
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.aa-dtm2 .read{
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.bound .aa-dtm2{
+	vertical-align: super;
+	font-size: smaller;
+}
+
+@font-face{
+	font-family: CuneiInk;
+	src: url("fonts/ArmannisNew.otf");
+}
+@font-face{
+	font-family: CuneiPublished;
+	src: url("fonts/MittellinienNew.otf");
+}
+@font-face{
+	font-family: CuneiHandwrite;
+	src: url("fonts/PenstrokeNew.otf");
+}
+@font-face{
+	font-family: CuneiLinear;
+	src: url("fonts/LinearNew.otf");
+}
+
+.font-ink .glyph{
+	font-family: CuneiInk;
+}
+.font-publish .glyph{
+	font-family: CuneiPublished;
+}
+.font-write .glyph{
+	font-family: CuneiHandwrite;
+}
+.font-linear .glyph{
+	font-family: CuneiLinear;
+}

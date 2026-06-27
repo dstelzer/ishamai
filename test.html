@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Cuneiform Rendering Test</title>
+		<script language="javascript" src="hzl.js"></script>
+		<script language="javascript" src="signbreak.js"></script>
+		<script language="javascript" src="cuneiform.js"></script>
+		<link rel="stylesheet" href="cuneiform.css" />
+	</head>
+	<body>
+		<p>
+			<select id="modesel" onload="dropdown_load('modesel');" onchange="dropdown_change('modesel');">
+				<option value="hidebound" selected>Signs</option>
+				<option value="showbound">Bound transcription</option>
+			</select>
+			<select id="fontsel" onload="dropdown_load('fontsel');" onchange="dropdown_change('fontsel');">
+				<option value="font-ink" selected>Ink</option>
+				<option value="font-publish">Published</option>
+				<option value="font-write">Handwritten</option>
+				<option value="font-linear">Linear</option>
+			</select>
+		</p>
+		<p>
+		<span class="sign">
+			<span class="glyph">𒀸</span>
+			<span class="read">aš</span>
+		</span>
+		<span class="sign">
+			<span class="glyph">𒁁</span>
+			<span class="read">pát</span>
+		</span>
+		<span class="sign">
+			<span class="glyph">𒅆</span>
+			<span class="read">ši</span>
+		</span>
+		</p>
+		
+		<p id="example">nu NINDA-an ēzzatteni, wātar=ma ekuteni.</p>
+		<input type="button" value="Test" onclick="process_element(document.getElementById('example'));" />
+	</body>
+</html>

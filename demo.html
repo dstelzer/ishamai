@@ -1,0 +1,143 @@
+<head>
+<style>
+	.input{
+		color: blue;
+	}
+	
+	.status{
+		border: 1px solid black;
+		padding: 0.5em;
+		margin: 0.5em;
+		background-color: #cccccc;
+	}
+	
+	.compass{
+		text-align: center;
+		border: 1px dotted black;
+	}
+	
+	.header{
+		text-align: center;
+		border: 1px solid black;
+		background-color: #888888;
+	}
+	
+	.det .read{
+		vertical-align: super;
+		font-size: smaller;
+	}
+	
+	.bound .det{
+		vertical-align: super;
+		font-size: smaller;
+	}
+	
+	.akk .read{
+		text-transform: uppercase;
+		font-style: italic;
+	}
+	
+	.bound .akk{
+		text-transform: uppercase;
+		font-style: italic;
+	}
+	
+	.english{
+		display: none;
+	}
+	
+	.showbound .english{
+		display: inline;
+		font-style: italic;
+		margin-left: 1em;
+		margin-right: 2em;
+		font-family: monospace;
+		color: #888888;
+	}
+</style>
+<script language="javascript" src="jquery-4.0.0.slim.min.js"></script>
+<script language="javascript" src="hzl.js"></script>
+<script language="javascript" src="signbreak.js"></script>
+<script language="javascript" src="cuneiform.js"></script>
+<link rel="stylesheet" href="cuneiform.css" />
+<script language="javascript" src="dictionary.js"></script>
+<script language="javascript" src="dictshow.js"></script>
+</head>
+<body>
+<div class="header">
+	Hittite shown as:
+	<select class="settings" id="modesel">
+		<option value="hidebound" selected>Signs</option>
+		<option value="showbound">Bound transcription</option>
+	</select>
+	&nbsp;
+	Cuneiform font:
+	<select class="settings" id="fontsel">
+		<option value="font-ink" selected>Ink</option>
+		<option value="font-publish">Published</option>
+		<option value="font-write">Handwritten</option>
+		<option value="font-linear">Linear</option>
+	</select>
+	&nbsp;
+	Sign size:
+	<select class="settings" id="sizesel">
+		<option value="size-small">Small</option>
+		<option value="size-medium" selected>Medium</option>
+		<option value="size-large">Large</option>
+	</select>
+</div>
+
+<div id="dictionary">Dictionary here</div>
+
+<input type="text" id="aainput" value="Input here" />
+
+<p class="input">&gt; <span class="hittitex">nu auriya paon</span> <span class="english" data-language="en">Then I went to the watchtower.</span></p>
+
+<p class="output hittite">Nu <span class="det">É</span>auriya paon. <span class="english" data-language="en">Then I went to the watchtower.</span></p>
+
+<div class="status hittite">
+Nu <span class="det">É</span>auriya ešon. <span class="english" data-language="en">Then I was at the watchtower.</span>
+
+<div class="compass">
+       aški <span class="english" data-language="en">Gate</span>        <br />
+palši <span class="english" data-language="en">Road</span>   <> <span class="english" data-language="en">&nbsp;</span>   kutti <span class="english" data-language="en">Wall</span> <br />
+      wappi <span class="english" data-language="en">Riverbank</span>        
+</div>
+
+Nu apiya aškan šiyantan ōḫḫon. <span class="english" data-language="en">I saw a closed gate there.</span>
+</div>
+
+<div class="status">
+Verbs: <span class="hittite">ōḫḫon <span class="english" data-language="en">I saw</span> paon <span class="english" data-language="en">I went</span></span>
+</div>
+
+<p class="input">&gt; <span class="hittitex">acki paon</span> <span class="english" data-language="en">I went to the gate.</span></p>
+
+<p class="output hittite">Nu <span class="det">É</span>ḫilamni aškaz šiyantaz <span class="akk">ūl</span> paon. Nu aškaš šiyanza ēšta. <span class="english" data-language="en">I did not go through the gate to the gatehouse. The gate was closed.</span></p>
+
+<p class="input">&gt; <span class="hittitex">acki ohhon</span> <span class="english" data-language="en">I saw at the gate.</span></p>
+
+<p class="meta">This sentence, [<span class="hittite">aški oḫḫon</span>], is difficult to interpret. There should not be a dative noun.</p>
+
+<p class="input">&gt; <span class="hittitex">palci paon</span> <span class="english" data-language="en">I went to the road.</span></p>
+
+<p class="output hittite">Nu palši paon. <span class="english" data-language="en">Then I went to the road.</span></p>
+
+<div class="status hittite">
+Nu palši ešon. <span class="english" data-language="en">Then I was at the road.</span>
+
+<div class="compass">
+                        <br />
+     <span style="width:10ch;display:inline-block;"></span>      <>   auriya <span class="english" data-language="en">Watchtower</span> <br />
+                        &nbsp;
+</div>
+
+Nu apiya ilan ōḫḫon. <span class="english" data-language="en">I saw a ladder there.</span>
+</div>
+
+<div class="status">
+Verbs: <span class="hittite">ōḫḫon <span class="english" data-language="en">I saw</span> paon <span class="english" data-language="en">I went</span> daḫḫon <span class="english" data-language="en">I took</span></span>
+</div>
+
+<p class="input">&gt; </p>
+</body>

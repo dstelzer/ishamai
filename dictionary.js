@@ -1,0 +1,1 @@
+/home/daniel/Documents/OtherIF/Dialog/hittite/dictionary.js
