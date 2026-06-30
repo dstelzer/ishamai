@@ -20,9 +20,9 @@ function show_dictionary_entry(node) {
 	currently_shown_dictionary_entry = word;
 	
 	// The only space characters at this point should be from our determiner- and clitic-breaking, but it's also possible there were spaces inside the data-word property, in which case this is also an appropriate way to treat them
-	console.log("word: " + word);
+//	console.log("word: " + word);
 	let pieces = word.match(/\S+/g);
-	console.log("pieces: " + pieces);
+//	console.log("pieces: " + pieces);
 	
 	let defns = [];
 	for(let piece of pieces) {
@@ -37,10 +37,11 @@ function show_dictionary_entry(node) {
 			return;
 		}
 		let defn = dictionary_defns[lemma];
-		defns.push(`<h2 class="lemma">${lemma}</h1>\n${defn}`);
+		defns.push(`<h2 class="lemma" data-language="ht"><p>${lemma}</p></h2>\n${defn}`);
 	}
 	
 	$("#dictionary").html(defns.join("\n\n<hr />\n\n"));
+	cuneiform.process_paragraphs();
 }
 
 function insert_dictionary_word(node) {
@@ -60,6 +61,7 @@ function insert_dictionary_word(node) {
 	// Have a space between words unless the right one is a clitic or the left one doesn't exist
 	// And leave a space at the end in case the user wants to type
 	$("#aainput").val(existing + ((clitic || !existing) ? "" : " ") + word + " ");
+	$("#aainput").trigger('input'); // The text changed, so trigger any handlers that watch for the text changing
 }
 
 $(document).on('click', '.word', function() { show_dictionary_entry(this); });

@@ -30,6 +30,7 @@ function update_dropdowns(which) {
 }
 $(function() {
 	load_dropdowns();
+	setTimeout(function() { $(".settings").trigger("change"); }, 50) // Trigger the listeners after loading, because other libraries may have to care about it (in particular the Å-machine terp's web frontend)
 	$(".settings").on("change", function() { update_dropdowns(this); } );
 });
 
@@ -42,7 +43,7 @@ function make_cleanup_regexes(){ // Take the sign_cleanup dictionary and turn it
 }
 
 const SIGN = "(?:\\p{Letter}|\\p{Number}|\\+|:|×)+"; // Any sequence of letters, numbers, and three punctuation marks that can appear in sign names (+, ×, :), using non-capturing groups
-const SEPS = "[\\-\\.\\^=]"; // Dash (for phonograms), dot (for logograms), equals (for clitics), caret (for determiners)
+const SEPS = "[\\-\\.=\\^]"; // Dash (for phonograms), dot (for logograms), equals (for clitics), caret (for determiners)
 const WORD = new RegExp(`((?:${SEPS}*${SIGN})+${SEPS}*)`, "gu"); // We now allow separators optionally at either end, to avoid problems with Akkadograms (which are in their own <em> tags) leaving dangling = and - next to them
 const SEPARATOR = new RegExp(`${SEPS}`, "gu");
 
@@ -157,7 +158,8 @@ function process_element(element, include_bound=true){
 	
 	if(include_bound){
 		// Then copy it to make "bound"
-		var bound = translit.cloneNode(true); // Deep copy
+//		var bound = translit.cloneNode(true); // Deep copy
+		var bound = $(translit).clone(true)[0]; // Deep copy including event listeners
 		bound.setAttribute("class", "bound");
 		element.appendChild(bound); // Put this first
 	}

@@ -13,7 +13,14 @@ const LONG2SHORT = {
 	'î' : 'i',
 	'ô' : 'o',
 	'û' : 'u',
-}
+	'ä' : 'a',
+	'ë' : 'e',
+	'ï' : 'i',
+	'ö' : 'o',
+	'ü' : 'u',
+};
+
+const HYPERPLENE = ['ä', 'ë', 'ï', 'ö', 'ü'];
 
 const REPLACE = { // Sometimes the sign used in Hittite isn't the one with the most obvious name; for example, PI isn't used in Hittite (it's Hittite /wa/) and PÍ is used instead
 	'pi' : 'pí',
@@ -24,27 +31,28 @@ const REPLACE = { // Sometimes the sign used in Hittite isn't the one with the m
 	'ze' : 'zé', // the second ones are distinct from hi/zi and thus better
 //	'gu' : 'ku', // Kloekhorst says GU is basically never used phonetically
 				 // Similarly BA is rarely used except in names but since it does appear in names I'm leaving it intact here
-}
+};
 
 const DOUBLE_REPLACE = [ // In this particular case, Hittite invariably uses a sign that's not V, CV, or VC, so we have to handle it specially
-	{'first':'ay', 'second':'ya', 'replace':'ayya'},
-]
+//	{'first':'ay', 'second':'ya', 'replace':'ayya'},
+];
 
 const PRE_REPLACE = [ // Words always written with particular signs, which we should extract before doing anything else
 	[/=k[aá]n$/gu, '-kán'], // enclitic kan
 	[/=p[aá]t$/gu, '-pát'], // enclitic pat
 	[/`/gu, '-:-'], // glossenkeil before word
 	[/[=⸗]/gu, ''], // clitic boundaries
-]
+];
 
 const DONT_SYLLABIFY = [
 	'kán', 'pát'
-]
+];
 
 const SEP = /[\.\-\^]/u; // . - ^ are things that can separate signs within a word
 const V = "[aeiouāēīōūâêîôû]";
 const C = "[bcdfghjklmnpqrstvwxyzšḫṣṭḳśŋĝř]";
 const ONLYSEPS = /^[\.\-\^]*$/u; // Only separators, nothing else
+const ANNOTATIONS = /\[\]\(\)=⸗/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
 
 //const FIXED = new Set(["pát", "kán", ":"]); // Hittite words written phonetically but with specific signs (and the Glossenkeil which has no Cs or Vs in it)
 
@@ -52,7 +60,12 @@ const STANDARDIZE_BOUND = [ // Convert phonemic bound transcription to standard 
 	['ō', 'ū'],
 	['o', 'u'],
 	['f', 'w'],
-]
+	['ä', 'ā'],
+	['ë', 'ē'],
+	['ï', 'ī'],
+	['ö', 'ō'],
+	['ü', 'ū'],
+];
 
 function word_to_bound(s){
 	for(let repl of STANDARDIZE_BOUND){
@@ -78,6 +91,8 @@ function syllabify(s){
 
 // Turn a word into an array of signs
 function word_to_signs(s){
+	s = s.replace(ANNOTATIONS, ""); // See ANNOTATIONS for details on why we do this
+	
 	if(ONLYSEPS.test(s)) return []; // If we get a word that's only separators, or is empty, don't try to parse it any further; that means no signs at all
 	
 	// Do a bit of cleanup on the word before anything else, since there are a few clitics in Hittite that are treated specially
@@ -147,7 +162,11 @@ function syllable_to_signs(s){
 	
 	let [onset, nucleus, coda] = pieces;
 	let plene = false;
-	if(nucleus in LONG2SHORT){
+	let hyperplene = false;
+	if(HYPERPLENE.includes(nucleus)) {
+		hyperplene = true;
+	}
+	if(nucleus in LONG2SHORT) {
 		nucleus = LONG2SHORT[nucleus];
 		plene = true;
 	}
@@ -181,10 +200,12 @@ function syllable_to_signs(s){
 	}
 	if(plene){
 		if(nucleus == "u" && !o){
+			if(hyperplene) out.push("ú");
 			out.push("ú") // Use the ú sign for /u/ and the u sign for /o/
 //		}else if(o){
 //			out.push("o"); // Disable this if you want to call it "u" instead
 		}else{
+			if(hyperplene) out.push(nucleus);
 			out.push(nucleus);
 		}
 	}

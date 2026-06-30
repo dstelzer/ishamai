@@ -1,0 +1,39 @@
+e-ku-ud-du		ekwtu		e-uk-ud-du
+ak-ku-us-ke-	akkwske		ak-ku-us-ke-
+e-ku-zi			ekwzi		e-uk-zi
+e-uk-zi			ekwzi
+a-ku-ú-e-ni		akwweni		a-uk-ú-e-ni
+e-ku-un			ekwun		e-uk-un
+ku-wa-pi		kwapi		ku-wa-pi
+ku-it			kwit		ku-it
+e-ku			ekw			e-uk
+ta-ak-ku		takkw		ta-ak-ku
+
+Rules:
+kkw > kku
+#kwa > #kuwa
+#kw > #ku
+kw > uk
+
+Should hw be the same??
+
+Kloekhorst 2006: relevant words are tarhw- "overpower", tarkw- "dance", ekw- "drink", lahw- "pour"
+
+The problem is that uh is not distinct from ah etc in writing which leads tar-uh-zi being read as tarhzi instead of tarhwzi
+
+Also kuranzi/kwranzi "cut"
+
+Puhvel:
+	kuenzi, kunanzi "kill"
+	kuis, kuwat, kuwapi "quis"
+	nekut-, nekuz, nekuzzi "evening"
+	tekkuccai "show"
+	tarku- "dance"
+	nekumant- "naked"
+	tarkuwa- "fierce"
+	arkuwar "prayer"
+	dankui- "dark"
+	cankui- "fingernail"
+	ekuzi, akuwanzi "drink"
+	akkuck- "drink (iter)"
+	cakuwa "eyes"

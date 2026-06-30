@@ -60,7 +60,7 @@
 	display: none;
 }
 
-.header{ /* Top bar with dropdowns */
+.header{ /* Top bar with dropdowns */ /* CURRENTLY DISABLED */
 	width: auto;
 	margin: auto;
 	font-size: smaller;
@@ -68,21 +68,48 @@
 	text-align: center;
 }
 
-#dictionary{ /* Dictionary panel off to the side */
+/* Make the status bar glow when it changes, to draw attention */
+@keyframes flare {
+	from {
+		text-shadow: 0 0 0.5em #888888, 0 0 0.5em #888888, 0 0 0.5em #888888, 0 0 0.5em #888888;
+	}
+	100% {
+		text-shadow: unset;
+	}
+}
+
+#rightcolumn{ /* Right column */
 	height: 100%;
 	float: right;
 	width: 30ch;
+	text-align: left;
+/*	overflow: auto;	TODO */
+}
+
+.panel{ /* Right column panels */
+	width: 100%;
 	background-color: rgba(128, 128, 128, 0.25);
 	border: 1px solid rgb(128, 128, 128);
 	margin-top: 1em;
 	padding: 0.5em;
 	display: inline-block;
+}
+
+#compass table {
+	table-layout: auto;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+}
+
+#dictionary{ /* Dictionary panel in the right column */
 	line-height: 1.35em;
 }
 
-#dictionary h2{ /* Headwords */
+#dictionary h2 p{ /* Headwords */
 	font-size: 1.5em;
 	font-weight: bold;
+	margin-top: initial;
 }
 
 #dictionary p{ /* Entries */
@@ -96,11 +123,14 @@
 
 #aacontainer{ /* Make this wider to contain the dictionary */
 	max-width: 93ch;
+	text-align: center;
 }
 
 #maincolumn{
 	max-width: 60ch;
 	display: inline-block;
+	text-align: left;
+	margin: 0;
 }
 
 /* We added an explicit submit button so it needs to be styled too */
@@ -108,7 +138,9 @@
 	display: inline-block;
 }
 #aasubmit{
-	float: right;
+	position: absolute;
+	top: 0px;
+	right: -1em;
 	display: inline-block;
 }
 #aainputblock{
@@ -116,6 +148,7 @@
 	display: none;
 	padding: 0;
 	height: 1.1em;
+	position: relative;
 }
 
 .aa-dtm .read{
