@@ -42,7 +42,7 @@ function make_cleanup_regexes(){ // Take the sign_cleanup dictionary and turn it
 	}
 }
 
-const SIGN = "(?:\\p{Letter}|\\p{Number}|\\+|:|×)+"; // Any sequence of letters, numbers, and three punctuation marks that can appear in sign names (+, ×, :), using non-capturing groups
+const SIGN = "(?:\\p{Letter}|\\p{Number}|\\+|:|×|[\\[\\]\\(\\)])+"; // Any sequence of letters, numbers, and three punctuation marks that can appear in sign names (+, ×, :), using non-capturing groups; we also include brackets and parens for cases like DI[NGIR]
 const SEPS = "[\\-\\.=\\^]"; // Dash (for phonograms), dot (for logograms), equals (for clitics), caret (for determiners)
 const WORD = new RegExp(`((?:${SEPS}*${SIGN})+${SEPS}*)`, "gu"); // We now allow separators optionally at either end, to avoid problems with Akkadograms (which are in their own <em> tags) leaving dangling = and - next to them
 const SEPARATOR = new RegExp(`${SEPS}`, "gu");
