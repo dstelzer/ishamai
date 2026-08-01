@@ -37,6 +37,8 @@ def get_unicode(path):
 			data[hzl] = new
 	
 	data['-1'] = '\ufffd' # For an error code
+	data['0'] = '\u2007' # Blank space
+	data['#'] = '\u2592' # Damage to the tablet
 	
 	return data
 
@@ -67,6 +69,8 @@ def get_hzl(path):
 			data[reading] = hzl
 	
 	data['×××'] = '-1' # For an error code
+	data['0'] = '0' # For a gap/empty space in numbers
+	data['×'] = '#' # For damage to the tablet
 	
 	return data
 
