@@ -62,19 +62,19 @@
 
 @font-face{
 	font-family: CuneiInk;
-	src: url("fonts/ArmannisNew.otf");
+	src: url("fonts/ArmannisNew.woff2");
 }
 @font-face{
 	font-family: CuneiPublished;
-	src: url("fonts/MittellinienNew.otf");
+	src: url("fonts/MittellinienNew.woff2");
 }
 @font-face{
 	font-family: CuneiHandwrite;
-	src: url("fonts/PenstrokeNew.otf");
+	src: url("fonts/PenstrokeNew.woff2");
 }
 @font-face{
 	font-family: CuneiLinear;
-	src: url("fonts/LinearNew.otf");
+	src: url("fonts/LinearNew.woff2");
 }
 
 .font-ink .glyph{
