@@ -175,6 +175,7 @@ function process_element(element, include_bound=true){
 	let textnodes = [];
 	for(let i=0; i<elnodes.length; i++){
 		let el = elnodes[i];
+		el.normalize(); // As above
 		for(let j=0; j<el.childNodes.length; j++){
 			let ch = el.childNodes[j];
 			if(ch.nodeType == Node.TEXT_NODE && latest_parent_language(ch) != 'en'){
