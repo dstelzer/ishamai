@@ -41,7 +41,7 @@ const PRE_REPLACE = [ // Words always written with particular signs, which we sh
 	[/=k[aá]n$/gu, '-kán'], // enclitic kan
 	[/=p[aá]t$/gu, '-pát'], // enclitic pat
 	[/`/gu, '-:-'], // glossenkeil before word
-	[/[=⸗]/gu, ''], // clitic boundaries
+	[/[=⸗\(\)]/gu, ''], // clitic and optional boundaries
 ];
 
 const DONT_SYLLABIFY = [
@@ -49,7 +49,7 @@ const DONT_SYLLABIFY = [
 ];
 
 const SEP = /[\.\-\^]/u; // . - ^ are things that can separate signs within a word
-const V = "[aeiouāēīōūâêîôû]";
+const V = "[aeiouāēīōūâêîôûäëïöü]";
 const C = "[bcdfghjklmnpqrstvwxyzšḫṣṭḳśŋĝř]";
 const ONLYSEPS = /^[\.\-\^]*$/u; // Only separators, nothing else
 const ANNOTATIONS = /\[\]\(\)=⸗/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc

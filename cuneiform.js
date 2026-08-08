@@ -151,6 +151,8 @@ function process_element(element, include_bound=true){
 	let child = element.querySelector(".translit");
 	if(child) return; // Already done, nothing to do here
 	
+	element.normalize(); // Merge adjacent text nodes
+	
 	// Create a span of class "translit" to be a child of it
 	let translit = make_span("translit");
 	// And move all children over
