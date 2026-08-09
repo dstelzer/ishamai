@@ -41,7 +41,7 @@ const PRE_REPLACE = [ // Words always written with particular signs, which we sh
 	[/=k[aá]n$/gu, '-kán'], // enclitic kan
 	[/=p[aá]t$/gu, '-pát'], // enclitic pat
 	[/`/gu, '-:-'], // glossenkeil before word
-	[/[=⸗\(\)]/gu, ''], // clitic and optional boundaries
+	[/[=⸗\(\)\[\]“”]/gu, ''], // clitic and optional boundaries
 ];
 
 const DONT_SYLLABIFY = [
@@ -52,7 +52,7 @@ const SEP = /[\.\-\^]/u; // . - ^ are things that can separate signs within a wo
 const V = "[aeiouāēīōūâêîôûäëïöü]";
 const C = "[bcdfghjklmnpqrstvwxyzšḫṣṭḳśŋĝř]";
 const ONLYSEPS = /^[\.\-\^]*$/u; // Only separators, nothing else
-const ANNOTATIONS = /\[\]\(\)=⸗/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
+const ANNOTATIONS = /\[\]\(\)=⸗“”/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
 
 //const FIXED = new Set(["pát", "kán", ":"]); // Hittite words written phonetically but with specific signs (and the Glossenkeil which has no Cs or Vs in it)
 
