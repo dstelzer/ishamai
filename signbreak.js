@@ -45,7 +45,7 @@ const PRE_REPLACE = [ // Words always written with particular signs, which we sh
 ];
 
 const DONT_SYLLABIFY = [
-	'kán', 'pát'
+	'kán', 'pát',
 ];
 
 const SEP = /[\.\-\^]/u; // . - ^ are things that can separate signs within a word
@@ -56,7 +56,7 @@ const ANNOTATIONS = /\[\]\(\)=⸗“”/gu; // Things that should be removed bef
 
 //const FIXED = new Set(["pát", "kán", ":"]); // Hittite words written phonetically but with specific signs (and the Glossenkeil which has no Cs or Vs in it)
 
-const STANDARDIZE_BOUND = [ // Convert phonemic bound transcription to standard bound transcription (which doesn't distinguish o/u or f/w)
+const STANDARDIZE_BOUND = [ // Convert phonemic bound transcription to standard bound transcription (which doesn't distinguish o/u, f/w, hyperplene spelling)
 	['ō', 'ū'],
 	['o', 'u'],
 	['f', 'w'],
