@@ -46,6 +46,7 @@ const SIGN = "(?:\\p{Letter}|\\p{Number}|\\+|:|×|[\\[\\]\\(\\)])+"; // Any sequ
 const SEPS = "[\\-\\.=\\^]"; // Dash (for phonograms), dot (for logograms), equals (for clitics), caret (for determiners)
 const WORD = new RegExp(`((?:${SEPS}*${SIGN})+${SEPS}*)`, "gu"); // We now allow separators optionally at either end, to avoid problems with Akkadograms (which are in their own <em> tags) leaving dangling = and - next to them
 const SEPARATOR = new RegExp(`${SEPS}`, "gu");
+const SUPPRESS = /[,“”‘’"'\\!\\?]/gu; // Punctuation that should be removed
 
 // Create the element representing a sign: a "sign" span containing a "glyph" span (Unicode) and a "read" span (reading)
 function make_sign_element(reading, unicode){
@@ -112,7 +113,8 @@ function shatter_word(word, bound, all_the_way=true){
 function shatter_whitespace(word, all_the_way=true){
 	if(!all_the_way) return document.createTextNode(word); // Just a text node
 	let node = make_span("whitespace"); // Otherwise we wrap it in .whitespace
-	add_text(node, word);
+	word = word.replace(SUPPRESS, ""); // Remove certain punctuation marks
+	add_text(node, word); // Keep the rest
 	return node;
 }
 

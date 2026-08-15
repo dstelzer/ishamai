@@ -40,8 +40,10 @@ const DOUBLE_REPLACE = [ // In this particular case, Hittite invariably uses a s
 const PRE_REPLACE = [ // Words always written with particular signs, which we should extract before doing anything else
 	[/=k[aá]n$/gu, '-kán'], // enclitic kan
 	[/=p[aá]t$/gu, '-pát'], // enclitic pat
-	[/`/gu, '-:-'], // glossenkeil before word
+	[/`/gu, '-:-'], // glossenkeil
 	[/[=⸗\(\)\[\]“”]/gu, ''], // clitic and optional boundaries
+	[/^:/gu, ':-'], // colon at beginning of word is glossenkeil
+	[/:$/gu, ''], // colon at end of word is punctuation
 ];
 
 const DONT_SYLLABIFY = [
