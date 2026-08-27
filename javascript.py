@@ -2,6 +2,8 @@
 # The data needed is:
 # hzl.dat : Hantatallas data on all the signs, includes a mapping from sign names to HZL numbers
 # unicode_cleaned.csv : data from Wiktionary, includes a mapping from HZL numbers to Unicode codepoints
+# replacements.dat : a list of compound logograms and the signs that comprise them
+# cleanup.dat : a list of character replacements to make when looking up signs, like converting H to Ḫ, or ₂ to 2
 
 import csv
 from pathlib import Path
@@ -85,14 +87,26 @@ def get_cleanup(path):
 			data[before.lower()] = after.lower()
 	return data
 
-def write_file(path, unicode, hzl, cleanup):
+def get_compounds(path):
+	data = {}
+	with path.open('r') as f:
+		for line in f:
+			if not line.strip(): continue
+			name, compound = line.strip().split()
+			sequence = compound.split('.')
+			data[name] = sequence
+	return data
+
+def write_file(path, unicode, hzl, cleanup, compounds):
 	unidata = json.dumps(unicode, indent='\t')
 	hzldata = json.dumps(hzl, indent='\t')
 	cleandata = json.dumps(cleanup, indent='\t')
+	compdata = json.dumps(compounds, indent='\t')
 	with path.open('w') as f:
 		f.write('name_hzl = ' + hzldata + ';\n\n')
 		f.write('hzl_unicode = ' + unidata + ';\n\n')
 		f.write('sign_cleanup = ' + cleandata + ';\n')
+		f.write('name_compound = ' + compdata + ';\n')
 
 if __name__ == '__main__':
 	base = Path.home() / 'Projects/Cuneiform/hantatallas/data'
@@ -102,6 +116,8 @@ if __name__ == '__main__':
 	hzl = get_hzl(base / 'hzl.dat')
 	print('Getting cleanup')
 	clean = get_cleanup(base / 'cleanup.dat')
+	print('Getting compounds')
+	comp = get_compounds(base / 'replacements.dat')
 	print('Writing')
-	write_file(Path('./hzl.js'), uni, hzl, clean)
+	write_file(Path('./hzl.js'), uni, hzl, clean, comp)
 	print('Done!')

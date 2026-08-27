@@ -38,7 +38,7 @@ var cleanup_regexes = null;
 function make_cleanup_regexes(){ // Take the sign_cleanup dictionary and turn it into a list of regexes for speed purposes
 	cleanup_regexes = [];
 	for(let [key, value] of Object.entries(sign_cleanup)){
-		cleanup_regexes.push([new RegExp(key), value]);
+		cleanup_regexes.push([new RegExp(key, "gu"), value]);
 	}
 }
 
@@ -68,6 +68,14 @@ function get_unicode_for(reading){
 		reading = reading.replace(key, value);
 	}
 	
+	if(reading in name_compound){ // Compound logogram: take the parts of the compound, recurse on each one, then return a concatenation of them
+		let sequence = name_compound[reading];
+		let unis = [];
+		for(let s of sequence){
+			unis.push(get_unicode_for(s));
+		}
+		return unis.join(""); // TODO: also show that it's a compound in the reading
+	}
 	if(!(reading in name_hzl)){
 		console.error("Unrecognized sign name " + reading);
 		return hzl_unicode["-1"];

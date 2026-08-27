@@ -2070,3 +2070,378 @@ sign_cleanup = {
 	"x": "\u00d7",
 	"\u2093": "\u00d7"
 };
+name_compound = {
+	"NAGGA": [
+		"AN",
+		"NA"
+	],
+	"M\u00c1\u0160DA": [
+		"MA\u0160",
+		"EN",
+		"GAG"
+	],
+	"MA\u0160DA2": [
+		"MA\u0160",
+		"EN",
+		"GAG"
+	],
+	"SAGI": [
+		"S\u00ccLA",
+		"\u0160U",
+		"DU\u1e2a"
+	],
+	"ENSI": [
+		"EN",
+		"ME",
+		"LI"
+	],
+	"USDU\u1e2aA": [
+		"U8",
+		"LU",
+		"\u1e2aI",
+		"A"
+	],
+	"G\u00c9\u0160BU": [
+		"\u0160U",
+		"B\u00d9LUG"
+	],
+	"GE\u0160BU2": [
+		"\u0160U",
+		"B\u00d9LUG"
+	],
+	"G\u00c9\u0160PU": [
+		"\u0160U",
+		"B\u00d9LUG"
+	],
+	"GE\u0160PU2": [
+		"\u0160U",
+		"B\u00d9LUG"
+	],
+	"AZAG": [
+		"KUG",
+		"AN"
+	],
+	"GU\u0160KIN": [
+		"KUG",
+		"GI"
+	],
+	"L\u00cdMMU": [
+		"TAB",
+		"TAB"
+	],
+	"LIMMU2": [
+		"TAB",
+		"TAB"
+	],
+	"TABIRA": [
+		"URUDU",
+		"NAGAR"
+	],
+	"TIBIRA": [
+		"URUDU",
+		"NAGAR"
+	],
+	"\u00d9MMEDA": [
+		"URUDU",
+		"DA"
+	],
+	"UMMEDA3": [
+		"URUDU",
+		"DA"
+	],
+	"GALA": [
+		"U\u0160",
+		"KU"
+	],
+	"S\u00cdSKUR": [
+		"SISKUR",
+		"SISKUR"
+	],
+	"B\u00c1\u1e2aAR": [
+		"DUG",
+		"S\u00ccLA",
+		"BUR"
+	],
+	"BA\u1e2aAR2": [
+		"DUG",
+		"S\u00ccLA",
+		"BUR"
+	],
+	"BA\u1e2aAR5": [
+		"DUG",
+		"S\u00ccLA",
+		"BUR",
+		"NA"
+	],
+	"ABUL": [
+		"K\u00c1",
+		"GAL"
+	],
+	"EDIN": [
+		"AM",
+		"S\u00ccLA",
+		"BUR"
+	],
+	"GIBIL6": [
+		"NE",
+		"GI"
+	],
+	"G\u00ccRA": [
+		"NE",
+		"GI"
+	],
+	"GIRA3": [
+		"NE",
+		"GI"
+	],
+	"\u00c9RIM": [
+		"NE",
+		"RU"
+	],
+	"ERIM2": [
+		"NE",
+		"RU"
+	],
+	"GARZA": [
+		"PA",
+		"AN"
+	],
+	"NUSKA": [
+		"PA",
+		"T\u00daG"
+	],
+	"GISSU": [
+		"GI\u0160",
+		"MI"
+	],
+	"GURU21": [
+		"E",
+		"TUM"
+	],
+	"SIMUG": [
+		"E",
+		"D\u00c9"
+	],
+	"ZARA\u1e2a": [
+		"SAG",
+		"PA",
+		"LAGAB"
+	],
+	"KI\u0160I16": [
+		"\u00da",
+		"G\u00cdR"
+	],
+	"UGA": [
+		"\u00da",
+		"TE",
+		"T\u00c8",
+		"GA"
+	],
+	"KUN4": [
+		"I",
+		"LU"
+	],
+	"N\u00cdR": [
+		"ZA",
+		"G\u00cdN"
+	],
+	"NIR2": [
+		"ZA",
+		"G\u00cdN"
+	],
+	"BAN\u0160UR": [
+		"URU",
+		"URUDU"
+	],
+	"BAN\u0160UR4": [
+		"E",
+		"URUDU"
+	],
+	"KUN5": [
+		"TUR",
+		"T\u00daG"
+	],
+	"\u00c9N": [
+		"\u0160\u00da",
+		"AN"
+	],
+	"EN2": [
+		"\u0160\u00da",
+		"AN"
+	],
+	"GUKKAL+KUN": [
+		"LU",
+		"\u1e2a\u00daL+KUN"
+	],
+	"PA5": [
+		"PAB",
+		"E"
+	],
+	"DANNA": [
+		"KASKAL",
+		"BU"
+	],
+	"ILLAT": [
+		"KASKAL",
+		"KUR"
+	],
+	"U\u1e2a7": [
+		"U",
+		"GAG"
+	],
+	"\u0160UKUR": [
+		"IGI",
+		"GAG"
+	],
+	"TIBULA": [
+		"\u0160\u00c0",
+		"A",
+		"TAR"
+	],
+	"N\u00ccTA": [
+		"MUNUS",
+		"U\u0160"
+	],
+	"NITA3": [
+		"MUNUS",
+		"U\u0160"
+	],
+	"D\u00d9R": [
+		"AN\u0160E",
+		"ARAD"
+	],
+	"DUR3": [
+		"AN\u0160E",
+		"ARAD"
+	],
+	"D\u00daSU": [
+		"AN\u0160E",
+		"\u00d9"
+	],
+	"DUSU2": [
+		"AN\u0160E",
+		"\u00d9"
+	],
+	"GUNNI": [
+		"KI",
+		"NE"
+	],
+	"KARA\u0160": [
+		"KI",
+		"KAL",
+		"BAD"
+	],
+	"G\u00c1RA\u0160": [
+		"KI",
+		"KAL",
+		"BAD"
+	],
+	"GARA\u01602": [
+		"KI",
+		"KAL",
+		"BAD"
+	],
+	"KISLA\u1e2a": [
+		"KI",
+		"UD"
+	],
+	"SUR7": [
+		"KI",
+		"GAG"
+	],
+	"BURANUN": [
+		"UD",
+		"KIB",
+		"NUN"
+	],
+	"ZIMBIR": [
+		"UD",
+		"KIB",
+		"NUN"
+	],
+	"\u00c8": [
+		"UD",
+		"DU"
+	],
+	"E3": [
+		"UD",
+		"DU"
+	],
+	"ZABAR": [
+		"UD",
+		"KA",
+		"BAR"
+	],
+	"GAMUN": [
+		"DIN",
+		"TIR"
+	],
+	"ARA5": [
+		"\u1e2aAR",
+		"\u1e2aAR"
+	],
+	"\u1e2a\u00c1": [
+		"\u1e2aI",
+		"A"
+	],
+	"\u1e2aA2": [
+		"\u1e2aI",
+		"A"
+	],
+	"GUDU12": [
+		"IM",
+		"ME"
+	],
+	"AYA": [
+		"A",
+		"A"
+	],
+	"AYYA": [
+		"A",
+		"A"
+	],
+	"\u00c0M": [
+		"A",
+		"AN"
+	],
+	"AM3": [
+		"A",
+		"AN"
+	],
+	"\u00c9R": [
+		"A",
+		"IGI"
+	],
+	"ER2": [
+		"A",
+		"IGI"
+	],
+	"E\u0160A": [
+		"A",
+		"TIR"
+	],
+	"\u00cdLDAG": [
+		"A",
+		"AM"
+	],
+	"ILDAG2": [
+		"A",
+		"AM"
+	],
+	"GUG": [
+		"ZA",
+		"GUL"
+	],
+	"Z\u00c1\u1e2a": [
+		"\u1e2aA",
+		"A"
+	],
+	"Z\u00c1\u1e2a2": [
+		"\u1e2aA",
+		"A"
+	],
+	"GUN": [
+		"G\u00da",
+		"UN"
+	]
+};
