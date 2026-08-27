@@ -40,23 +40,25 @@ const DOUBLE_REPLACE = [ // In this particular case, Hittite invariably uses a s
 const PRE_REPLACE = [ // Words always written with particular signs, which we should extract before doing anything else
 	[/=k[aá]n$/gu, '-kán'], // enclitic kan
 	[/=p[aá]t$/gu, '-pát'], // enclitic pat
-	[/`/gu, '-:-'], // glossenkeil before word
-	[/[=⸗\(\)]/gu, ''], // clitic and optional boundaries
+	[/`/gu, '-:-'], // glossenkeil
+	[/[=⸗\(\)\[\]“”]/gu, ''], // clitic and optional boundaries
+	[/^:/gu, ':-'], // colon at beginning of word is glossenkeil
+	[/:$/gu, ''], // colon at end of word is punctuation
 ];
 
 const DONT_SYLLABIFY = [
-	'kán', 'pát'
+	'kán', 'pát',
 ];
 
 const SEP = /[\.\-\^]/u; // . - ^ are things that can separate signs within a word
 const V = "[aeiouāēīōūâêîôûäëïöü]";
 const C = "[bcdfghjklmnpqrstvwxyzšḫṣṭḳśŋĝř]";
 const ONLYSEPS = /^[\.\-\^]*$/u; // Only separators, nothing else
-const ANNOTATIONS = /\[\]\(\)=⸗/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
+const ANNOTATIONS = /\[\]\(\)=⸗“”/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
 
 //const FIXED = new Set(["pát", "kán", ":"]); // Hittite words written phonetically but with specific signs (and the Glossenkeil which has no Cs or Vs in it)
 
-const STANDARDIZE_BOUND = [ // Convert phonemic bound transcription to standard bound transcription (which doesn't distinguish o/u or f/w)
+const STANDARDIZE_BOUND = [ // Convert phonemic bound transcription to standard bound transcription (which doesn't distinguish o/u, f/w, hyperplene spelling)
 	['ō', 'ū'],
 	['o', 'u'],
 	['f', 'w'],
