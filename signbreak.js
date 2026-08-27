@@ -56,7 +56,7 @@ const C = "[bcdfghjklmnpqrstvwxyzšḫṣṭḳśŋĝř]";
 const ONLYSEPS = /^[\.\-\^]*$/u; // Only separators, nothing else
 const ANNOTATIONS = /\[\]\(\)=⸗“”/gu; // Things that should be removed before syllabifying, for issues like SA[NGA], wa(r), n=at, etc
 
-const LITTLE_NUMBERS = /[₀₁₂₃₄₅₆₇₈₉]/u;
+const LITTLE_NUMBERS = /[₀₁₂₃₄₅₆₇₈₉0123456789]/u;
 
 //const FIXED = new Set(["pát", "kán", ":"]); // Hittite words written phonetically but with specific signs (and the Glossenkeil which has no Cs or Vs in it)
 
@@ -214,8 +214,8 @@ function syllable_to_signs(s){
 		}
 	}
 	for(let i=0; i<coda.length; i++){ // Multiple coda consonants are possible
-		if(LITTLE_NUMBERS.match(coda[i])){
-			console.warn(`Tried to syllabify {s}, but it looks like a logogram. Should this be uppercase?`);
+		if(coda[i].match(LITTLE_NUMBERS)){
+			console.warn(`Tried to syllabify ${s}, but it looks like a logogram. Should this be uppercase?`);
 			continue;
 		}
 		out.push(nucleus + coda[i]); // We do link => li-in-ik not li-in-ak or li-na-ak etc, it's unambiguous and imo more elegant
